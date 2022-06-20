@@ -7,15 +7,15 @@ let database = [
 
 ]
 
-const createItem = (task, status) => {
-  const item = document.createElement("label");
-  item.classList.add("todo_item");
+const createItem = (task, status, index) => {
+  const item = document.createElement('label');
+  item.classList.add('todo__item');
   item.innerHTML = `
-    <input type="checkbox" ${status}>
-    <div>${task}</div>
-    <input type="button" value="X">
+      <input type="checkbox" ${status} data-indice=${index}>
+      <div>${task}</div>
+      <input type="button" value="X" data-indice=${index}>
   `;
-  document.getElementById("todoList").appendChild(item);
+  document.getElementById('todoList').appendChild(item);
 }
 
 const clearTask = () => {
@@ -26,7 +26,8 @@ const clearTask = () => {
 }
 
 const updateScreen = () => {
-  database.forEach(item => createItem(item.task, item.status));
+  clearTask();
+  database.forEach(item, index => createItem(item.task, item.status, index));
 }
 
 const addTask = (event) => {
@@ -39,6 +40,20 @@ const addTask = (event) => {
   }
 }
 
+const removeItem = (index) => {
+  database.splice (index, 1);
+  updateScreen();
+}
+
+const clickItem = (event) => {
+  const element = event.target;
+  if(element.type === "button") {
+    const index = element.dataset.index;
+    removeItem(index);
+  }
+}
+
 document.getElementById("newItem").addEventListener("keypress", addTask);
+document.getElementById("todoList").addEventListener("click", clickItem);
 
 updateScreen();
