@@ -45,11 +45,20 @@ const removeItem = (index) => {
   updateScreen();
 }
 
+const updateItem = (index) => {
+  database[index].status = database[index].status === "" ? "checked" : "";
+  updateScreen;
+}
+
 const clickItem = (event) => {
   const element = event.target;
   if(element.type === "button") {
     const index = element.dataset.index;
     removeItem(index);
+  } 
+  else if (element.type === "checkbox"){
+    const index = element.dataset.index;
+    uptadeItem (index);
   }
 }
 
