@@ -45,7 +45,7 @@ main{
 .input input {
   width: 200px;
   height: 50px;
-  border-radius: 5px;
+  border-radius: 10px;
   border:none;
   outline: 0;
   font: bold 1.5rem serif;
@@ -63,7 +63,7 @@ button{
   background: #1E192F;
   color: #fff;
   outline: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -73,7 +73,7 @@ button{
   align-items: center;
   width: 300px;
   height: 150px;
-  border-radius: 5px;
+  border-radius: 10px;
   font: italic 1.5rem serif;
   box-shadow: 0px 0px 10px black;
   background: #1E192F;
