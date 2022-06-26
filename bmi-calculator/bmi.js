@@ -19,6 +19,23 @@ function bmi () {
     if ( valueBMI < 18.5) {
       rating = 'under-weight'
     }
+    else if (valueBMI < 25) {
+      rating = 'in good weight'
+    }
+    else if (valueBMI < 30) {
+      rating = 'over-weight'
+    }
+    else if (valueBMI < 35) {
+      rating = 'obese grade 1'
+    }
+    else if (valueBMI < 40) {
+      rating = 'obese grade 2'
+    }
+    else if (valueBMI < 45) {
+      rating = 'obese grade 3, be careful!'
+    }
+
+    result_id.textContent = `${name} your BMI is ${valueBMI} and you are ${rating}`;
 
   }
   else {
